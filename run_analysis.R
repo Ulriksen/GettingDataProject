@@ -4,7 +4,6 @@ require(plyr)
 #containing the captured motion data. Requires plyr package. To generate text files for 
 #means, call the writeMeans function. 
 
-
 writeMeans <- function() {
   #setup base directory and read files
   dataDir <- "/UCI\ HAR\ Dataset/"
@@ -39,7 +38,8 @@ writeMeans <- function() {
   
   #calculate means
   means <- ddply(data, c("subject","activityName"), numcolwise(mean))
+  means[,3] = NULL
   
   #save file
-  write.table(means, file = "sensor_avg_by_act_sub.txt", append = FALSE, row.names = FALSE)
+  write.table(means, file = "averages.txt", append = FALSE, row.names = FALSE)
 }
