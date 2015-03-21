@@ -12,3 +12,5 @@
 
 #data set
 UCI HAR Dataset/
+
+*.txt
